@@ -54,9 +54,21 @@ On the Mac do this: Open Android Studio. When the "Welcome to Android Studio" wi
 
 On Windows, open Android Studio. From the "File" menu choose "Import Project...". This will open the file browser. Navigate to you the project you created on your Desktop. Then click "OK". If you get a popup alert "Sync Android SDKS" regarding your paths, click "OK". This will adjust that problem. Afterwards you will get another dialog informing you that the Gradpe settings for this project are not configured yet. Click "OK". It will proceed to add the Gradles files to your project. When done, you will get a dialog alert informing you "Language level changes changes will take effect on project reload. Would you like to reload the project now?". Click "OK". You are now ready to run your project in either the emulator or deploy to a tethered device. Please consult the [Android Studio documentation](https://developer.android.com/tools/help/index.html) if you are unfamiliar with doing this.
 
+**Icon Sizes**
+
+When supplying icons for your project, make sure you have then in the following folders (note, all icons have the same name):
+
+- drawable-hdpi/ic_launcher.png
+- drawable-mdpi/ic_launcher.png
+- drawable-xhdpi/ic_launcher.png
+- drawable-xxhdpi/ic_launcher.png
+
+Their dimensions should be as follows:
 
 
+- drawable-hdpi 72x72
+- drawable-mdpi 48x48
+- drawable-xhdpi 96x96
+- drawable-xxhdpi 144x144
 
-
-
-
+With your icons with these sizes and each in their individual folder, drag the parent folder to the terminal window to add its path to the chui-android flag: `--icons `.
