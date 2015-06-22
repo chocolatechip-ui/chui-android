@@ -28,17 +28,17 @@ var noop = function() {};
 if (argv.proj) {
   
   // First level files:
-  cp(path.join('gradle', 'build.gradle'), path.join(appPath,  'build.gradle'), noop);
-  cp(path.join('gradle', 'gradle.properties'), path.join(appPath, 'gradle.properties'), noop);
-  cp(path.join('gradle', 'gradlew'), path.join(appPath, 'gradlew'), noop);
-  cp(path.join('gradle', 'gradlew.bat'), path.join(appPath, 'gradlew.bat'), noop);
+  cp(path.join(__dirname, 'gradle', 'build.gradle'), path.join(appPath,  'build.gradle'), noop);
+  cp(path.join(__dirname, 'gradle', 'gradle.properties'), path.join(appPath, 'gradle.properties'), noop);
+  cp(path.join(__dirname, 'gradle', 'gradlew'), path.join(appPath, 'gradlew'), noop);
+  cp(path.join(__dirname, 'gradle', 'gradlew.bat'), path.join(appPath, 'gradlew.bat'), noop);
   writefile(path.join(appPath,'local.properties'), gradle.local_properties, noop);
-  cp(path.join('app', 'app.iml'), path.join(appPath,  argv.proj + '.iml'), noop);
+  cp(path.join(__dirname, 'app', 'app.iml'), path.join(appPath,  argv.proj + '.iml'), noop);
   writefile(path.join(appPath, 'settings.gradle'), gradle.settings, noop);
 
   // Files in ./gradle:
-  cp(path.join('gradle', 'gradle-wrapper.jar'), path.join(appPath, 'gradle', 'gradle-wrapper.jar'), noop);
-  cp(path.join('gradle', 'gradle-wrapper.properties'), path.join(appPath, 'gradle', 'gradle-wrapper.properties'), noop);
+  cp(path.join(__dirname, 'gradle', 'gradle-wrapper.jar'), path.join(appPath, 'gradle', 'gradle-wrapper.jar'), noop);
+  cp(path.join(__dirname, 'gradle', 'gradle-wrapper.properties'), path.join(appPath, 'gradle', 'gradle-wrapper.properties'), noop);
 
   // Files in ./app:
   writefile(path.join(appPath, 'app','proguard-rules.pro'), android.proguard_rules, noop);
@@ -59,24 +59,24 @@ if (argv.proj) {
    if (icons) {
     cpr(icons, path.join(appPath, 'app', 'src', 'main', 'res'), noop);
    } else {
-     cp(path.join('res', 'drawable-hdpi', 'ic_launcher.png'), path.join(appPath, 'app', 'src', 'main', 'res', 'drawable-hdpi', 'ic_launcher.png'), noop);
-     cp(path.join('res', 'drawable-mdpi', 'ic_launcher.png'), path.join(appPath, 'app', 'src', 'main', 'res', 'drawable-mdpi', 'ic_launcher.png'), noop);
-     cp(path.join('res', 'drawable-xhdpi', 'ic_launcher.png'), path.join(appPath, 'app', 'src', 'main', 'res', 'drawable-xhdpi', 'ic_launcher.png'), noop);
-     cp(path.join('res', 'drawable-xxhdpi', 'ic_launcher.png'), path.join(appPath, 'app', 'src', 'main', 'res', 'drawable-xxhdpi', 'ic_launcher.png'), noop);
+     cp(path.join(__dirname, 'res', 'drawable-hdpi', 'ic_launcher.png'), path.join(appPath, 'app', 'src', 'main', 'res', 'drawable-hdpi', 'ic_launcher.png'), noop);
+     cp(path.join(__dirname, 'res', 'drawable-mdpi', 'ic_launcher.png'), path.join(appPath, 'app', 'src', 'main', 'res', 'drawable-mdpi', 'ic_launcher.png'), noop);
+     cp(path.join(__dirname, 'res', 'drawable-xhdpi', 'ic_launcher.png'), path.join(appPath, 'app', 'src', 'main', 'res', 'drawable-xhdpi', 'ic_launcher.png'), noop);
+     cp(path.join(__dirname, 'res', 'drawable-xxhdpi', 'ic_launcher.png'), path.join(appPath, 'app', 'src', 'main', 'res', 'drawable-xxhdpi', 'ic_launcher.png'), noop);
    }
 
-   cp(path.join('res', 'layout', 'activity_main.xml'), path.join(appPath, 'app', 'src', 'main', 'res', 'layout', 'activity_main.xml'), noop);
-   cp(path.join('res', 'menu', 'menu_main.xml'), path.join(appPath, 'app', 'src', 'main', 'res', 'menu', 'menu_main.xml'), noop);
-   cp(path.join('res', 'values', 'dimens.xml'), path.join(appPath, 'app', 'src', 'main', 'res', 'values', 'dimens.xml'), noop);
-   cp(path.join('res', 'values', 'styles.xml'), path.join(appPath, 'app', 'src', 'main', 'res', 'values', 'styles.xml'), noop);
-   cp(path.join('res', 'values-w820dp', 'dimens.xml'), path.join(appPath, 'app', 'src', 'main', 'res', 'values-w820dp', 'dimens.xml'), noop);
+   cp(path.join(__dirname, 'res', 'layout', 'activity_main.xml'), path.join(appPath, 'app', 'src', 'main', 'res', 'layout', 'activity_main.xml'), noop);
+   cp(path.join(__dirname, 'res', 'menu', 'menu_main.xml'), path.join(appPath, 'app', 'src', 'main', 'res', 'menu', 'menu_main.xml'), noop);
+   cp(path.join(__dirname, 'res', 'values', 'dimens.xml'), path.join(appPath, 'app', 'src', 'main', 'res', 'values', 'dimens.xml'), noop);
+   cp(path.join(__dirname, 'res', 'values', 'styles.xml'), path.join(appPath, 'app', 'src', 'main', 'res', 'values', 'styles.xml'), noop);
+   cp(path.join(__dirname, 'res', 'values-w820dp', 'dimens.xml'), path.join(appPath, 'app', 'src', 'main', 'res', 'values-w820dp', 'dimens.xml'), noop);
    writefile(path.join(appPath, 'app', 'src', 'main', 'res', 'values', 'strings.xml'), android.strings, noop);
   if (argv.app) {
     ncp.limit = 16;
     ncp(argv.app, path.join(appPath, 'app', 'src', 'main', 'assets'), noop);
   } else {
    // If no Web assets provided, out default Web page:
-   cp(path.join('web', 'index.html'), path.join(appPath, 'app', 'src', 'main', 'assets', 'index.html'), noop);
+   cp(path.join(__dirname, 'web', 'index.html'), path.join(appPath, 'app', 'src', 'main', 'assets', 'index.html'), noop);
   }
   console.log('The project was successfully created. You may now import it into Android Studio.');
 }
