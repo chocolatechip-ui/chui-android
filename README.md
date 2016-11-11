@@ -1,5 +1,7 @@
 # chui-android
 
+##This project has been discontinued. Instead, its functionality has been rolled into [chui](https://github.com/chocolatechip-ui/chui). Please use that instead.
+
 This is a node command-line tool that enables you to create a hybrid app container for your ChocolateChip-UI app that you can import into Android Studio to compile as an Android app. This module works on both Mac and Windows, creating the correct paths for each platform.
 
 ##Installation
